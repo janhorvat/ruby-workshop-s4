@@ -1,0 +1,579 @@
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCats (20170418141640)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "cats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "picture" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170418141640"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-18 14:16:58 UTC], ["updated_at", 2017-04-18 14:16:58 UTC]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started POST "/api/v1/cats" for ::1 at 2017-04-18 16:41:14 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/cats"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/cats" for ::1 at 2017-04-18 16:41:24 +0200
+Processing by CatsController#create as */*
+  Parameters: {"picture"=>#<ActionDispatch::Http::UploadedFile:0x007f9353953970 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15548-265fwj.png>, @original_filename="0c375608c71811e1b10e123138105d6b_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"0c375608c71811e1b10e123138105d6b_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Opomuc"}
+Completed 400 Bad Request in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: cat):
+  
+app/controllers/cats_controller.rb:18:in `cat_params'
+app/controllers/cats_controller.rb:3:in `create'
+Started POST "/cats" for ::1 at 2017-04-18 16:42:10 +0200
+Processing by CatsController#create as */*
+  Parameters: {"name"=>"Opomuc"}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: cat):
+  
+app/controllers/cats_controller.rb:18:in `cat_params'
+app/controllers/cats_controller.rb:3:in `create'
+Started POST "/cats" for ::1 at 2017-04-18 16:42:40 +0200
+Processing by CatsController#create as */*
+  Parameters: {"name"=>"Opomuc"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `pry' for #<Binding:0x007f935844b338>
+Did you mean?  pretty_print
+               pretty_inspect
+               pretty_print_cycle
+               try):
+  
+app/controllers/cats_controller.rb:18:in `cat_params'
+app/controllers/cats_controller.rb:3:in `create'
+Started POST "/cats" for ::1 at 2017-04-18 16:43:10 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CatsController#create as */*
+  Parameters: {"name"=>"Opomuc"}
+Completed 400 Bad Request in 34589ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: cat):
+  
+app/controllers/cats_controller.rb:19:in `cat_params'
+app/controllers/cats_controller.rb:3:in `create'
+Started POST "/cats" for ::1 at 2017-04-18 16:44:18 +0200
+Processing by CatsController#create as */*
+  Parameters: {"picture"=>"bla", "name"=>"Opomuc"}
+Completed 400 Bad Request in 37091ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: cat):
+  
+app/controllers/cats_controller.rb:19:in `cat_params'
+app/controllers/cats_controller.rb:3:in `create'
+Started POST "/cats" for ::1 at 2017-04-18 16:44:58 +0200
+Processing by CatsController#create as */*
+  Parameters: {"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8fae64490 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-1o59n26.png>, @original_filename="0c375608c71811e1b10e123138105d6b_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"0c375608c71811e1b10e123138105d6b_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Opomuc"}
+Completed 400 Bad Request in 10566ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: cat):
+  
+app/controllers/cats_controller.rb:19:in `cat_params'
+app/controllers/cats_controller.rb:3:in `create'
+Started POST "/cats" for ::1 at 2017-04-18 16:45:42 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8fe2683e0 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-19ios4u.png>, @original_filename="0c375608c71811e1b10e123138105d6b_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"0c375608c71811e1b10e123138105d6b_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Opomuc"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Opomuc"], ["picture", "0c375608c71811e1b10e123138105d6b_7.png"], ["created_at", 2017-04-18 14:45:47 UTC], ["updated_at", 2017-04-18 14:45:47 UTC]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 5475ms (Views: 1.2ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 16:46:53 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8fe9eaaf0 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-wbozav.png>, @original_filename="3f65914ca43711e1abb01231382049c1_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"3f65914ca43711e1abb01231382049c1_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Eda"}}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Eda"], ["picture", "3f65914ca43711e1abb01231382049c1_7.png"], ["created_at", 2017-04-18 14:46:57 UTC], ["updated_at", 2017-04-18 14:46:57 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 3483ms (Views: 0.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 16:47:16 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8fbf57f18 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-evykmv.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 14:47:26 UTC], ["updated_at", 2017-04-18 14:47:26 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 22ms (Views: 0.6ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 17:01:37 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8fbd87da0 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-11bikb0.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 15:01:37 UTC], ["updated_at", 2017-04-18 15:01:37 UTC]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 23ms (Views: 0.7ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 17:01:38 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8faf7cb70 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-1xqpvx7.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 15:01:38 UTC], ["updated_at", 2017-04-18 15:01:38 UTC]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 17:01:38 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8fa856620 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-16iyti4.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 15:01:38 UTC], ["updated_at", 2017-04-18 15:01:38 UTC]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 17:01:38 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8fe31ac70 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-pkqdzo.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 15:01:38 UTC], ["updated_at", 2017-04-18 15:01:38 UTC]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 17:01:39 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8fe291358 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-1qr6tk7.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 15:01:39 UTC], ["updated_at", 2017-04-18 15:01:39 UTC]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 18ms (Views: 0.5ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 17:01:39 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8fe1e3690 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-he2ffv.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 15:01:39 UTC], ["updated_at", 2017-04-18 15:01:39 UTC]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 12ms (Views: 0.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 17:01:39 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8fe110b78 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-9b73ht.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 15:01:39 UTC], ["updated_at", 2017-04-18 15:01:39 UTC]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 22ms (Views: 0.8ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 17:01:39 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8fea693c8 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-1eamd85.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 15:01:39 UTC], ["updated_at", 2017-04-18 15:01:39 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 11ms (Views: 0.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 17:01:39 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8fe979788 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-14m9k58.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 15:01:39 UTC], ["updated_at", 2017-04-18 15:01:39 UTC]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 17ms (Views: 0.9ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 17:02:10 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8fe073dc8 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-oheikg.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (2.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 15:02:10 UTC], ["updated_at", 2017-04-18 15:02:10 UTC]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 50ms (Views: 4.5ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 17:02:10 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8fc876248 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-4fel8k.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 15:02:10 UTC], ["updated_at", 2017-04-18 15:02:10 UTC]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 14ms (Views: 1.2ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 17:02:12 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8fbee5c10 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-1w9wsec.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 15:02:12 UTC], ["updated_at", 2017-04-18 15:02:12 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 13ms (Views: 2.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 17:02:12 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8fbe06768 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-138m037.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 15:02:12 UTC], ["updated_at", 2017-04-18 15:02:12 UTC]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 14ms (Views: 1.2ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 17:02:13 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8fb139f30 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-15y6qzc.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 15:02:13 UTC], ["updated_at", 2017-04-18 15:02:13 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 17:02:13 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd8fc855958 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-15790-154zfxd.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 15:02:13 UTC], ["updated_at", 2017-04-18 15:02:13 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 11ms (Views: 0.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:34 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 1.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:35 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:36 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:36 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:37 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:37 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:37 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:37 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:37 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:37 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:38 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:38 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:38 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:38 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:38 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:38 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:39 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:39 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:39 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:39 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:39 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:39 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:40 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:40 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:40 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:40 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:40 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:03:40 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:07:26 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:10:22 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (0.67ms)
+Completed 200 OK in 33ms (Views: 11.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:11:20 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 12ms (Views: 2.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:12:18 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (7972.96ms)
+Completed 200 OK in 7989ms (Views: 7974.5ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 17:12:51 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fbbfe409428 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-17571-kv2le5.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 15:12:51 UTC], ["updated_at", 2017-04-18 15:12:51 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (0.52ms)
+Completed 200 OK in 23ms (Views: 2.0ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 17:14:08 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fbbfba06180 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-17571-15a83gm.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 15:14:08 UTC], ["updated_at", 2017-04-18 15:14:08 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+[active_model_serializers] Rendered FullCatSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 200 OK in 26ms (Views: 0.9ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/cats" for ::1 at 2017-04-18 17:14:48 +0200
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fbbfb8477b8 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-17571-dngmsu.png>, @original_filename="10b80642c7da11e19894123138140d8c_7.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"10b80642c7da11e19894123138140d8c_7.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Mici"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mici"], ["picture", "10b80642c7da11e19894123138140d8c_7.png"], ["created_at", 2017-04-18 15:14:48 UTC], ["updated_at", 2017-04-18 15:14:48 UTC]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 1.5ms)
+
+
+  
+NoMethodError (undefined method `new' for "FullCatSerializer":String
+Did you mean?  next):
+  
+app/controllers/cats_controller.rb:5:in `create'
+  [1m[36mCat Load (2.9ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 3]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 4]]
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 5]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 6]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 7]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 8]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 9]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 10]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 11]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 12]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 13]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 14]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 15]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 16]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 17]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 18]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 19]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 20]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = ?[0m  [["id", 21]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/cats/random" for ::1 at 2017-04-18 17:30:33 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Class (0.16ms)
+Completed 200 OK in 20ms (Views: 7.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/cats/random" for ::1 at 2017-04-18 17:32:04 +0200
+Processing by CatsController#random as */*
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.24ms)
+Completed 200 OK in 20ms (Views: 5.7ms | ActiveRecord: 1.3ms)
+
+

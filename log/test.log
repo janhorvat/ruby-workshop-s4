@@ -1,0 +1,270 @@
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "cats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "picture" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170418141640)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", 2017-04-18 15:28:08 UTC], ["updated_at", 2017-04-18 15:28:08 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/cats/random" for 127.0.0.1 at 2017-04-18 17:30:02 +0200
+Processing by CatsController#random as HTML
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Class (0.12ms)
+Completed 200 OK in 15ms (Views: 7.7ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/cats/random" for 127.0.0.1 at 2017-04-18 17:32:17 +0200
+Processing by CatsController#random as HTML
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 200 OK in 18ms (Views: 6.7ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/cats/random" for 127.0.0.1 at 2017-04-18 17:33:15 +0200
+Processing by CatsController#random as HTML
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 200 OK in 20ms (Views: 7.0ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/cats/random" for 127.0.0.1 at 2017-04-18 17:44:29 +0200
+Processing by CatsController#random as HTML
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.24ms)
+Completed 200 OK in 21ms (Views: 7.4ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/cats/random?picture=%23%3CRack%3A%3ATest%3A%3AUploadedFile%3A0x007fe6ff108568%3E" for 127.0.0.1 at 2017-04-18 17:45:08 +0200
+Processing by CatsController#random as HTML
+  Parameters: {"picture"=>"#<Rack::Test::UploadedFile:0x007fe6ff108568>"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.26ms)
+Completed 200 OK in 22ms (Views: 8.6ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:45:40 UTC], ["updated_at", 2017-04-18 15:45:40 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/cats/random?picture=%23%3CRack%3A%3ATest%3A%3AUploadedFile%3A0x007ff024153490%3E" for 127.0.0.1 at 2017-04-18 17:45:40 +0200
+Processing by CatsController#random as HTML
+  Parameters: {"picture"=>"#<Rack::Test::UploadedFile:0x007ff024153490>"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (0.87ms)
+Completed 200 OK in 22ms (Views: 18.3ms | ActiveRecord: 0.3ms)
+  [1m[35m (1.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:45:59 UTC], ["updated_at", 2017-04-18 15:45:59 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/cats/random?picture=%23%3CRack%3A%3ATest%3A%3AUploadedFile%3A0x007ff283492438%3E" for 127.0.0.1 at 2017-04-18 17:45:59 +0200
+Processing by CatsController#random as HTML
+  Parameters: {"picture"=>"#<Rack::Test::UploadedFile:0x007ff283492438>"}
+  [1m[36mCat Load (1.1ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (8.42ms)
+Completed 200 OK in 118ms (Views: 105.9ms | ActiveRecord: 1.1ms)
+  [1m[35m (1.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:46:48 UTC], ["updated_at", 2017-04-18 15:46:48 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/cats/random?picture=%23%3CRack%3A%3ATest%3A%3AUploadedFile%3A0x007fa9d20854c0%3E" for 127.0.0.1 at 2017-04-18 17:46:48 +0200
+Processing by CatsController#random as HTML
+  Parameters: {"picture"=>"#<Rack::Test::UploadedFile:0x007fa9d20854c0>"}
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (1.91ms)
+Completed 200 OK in 33ms (Views: 25.0ms | ActiveRecord: 0.6ms)
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:52:13 UTC], ["updated_at", 2017-04-18 15:52:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/cats/random" for 127.0.0.1 at 2017-04-18 17:52:13 +0200
+Processing by CatsController#random as HTML
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:52:13 UTC], ["updated_at", 2017-04-18 15:52:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:53:44 UTC], ["updated_at", 2017-04-18 15:53:44 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/cats/random" for 127.0.0.1 at 2017-04-18 17:53:44 +0200
+Processing by CatsController#random as HTML
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:53:44 UTC], ["updated_at", 2017-04-18 15:53:44 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/cats" for 127.0.0.1 at 2017-04-18 17:53:44 +0200
+Processing by CatsController#create as HTML
+  Parameters: {"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd6f212e050 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-20990-1rpu55e.png>, @original_filename="cat.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"cat.png\"\r\nContent-Type: image/png\r\nContent-Length: 740326\r\n">}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:55:24 UTC], ["updated_at", 2017-04-18 15:55:24 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/cats/random" for 127.0.0.1 at 2017-04-18 17:55:24 +0200
+Processing by CatsController#random as HTML
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:55:24 UTC], ["updated_at", 2017-04-18 15:55:24 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/cats" for 127.0.0.1 at 2017-04-18 17:55:24 +0200
+Processing by CatsController#create as HTML
+  Parameters: {"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd003ead488 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-21115-196dmct.png>, @original_filename="cat.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"cat.png\"\r\nContent-Type: image/png\r\nContent-Length: 740326\r\n">, "cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fd003eaccb8 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-21115-1cali66.png>, @original_filename="cat.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"cat.png\"\r\nContent-Type: image/png\r\nContent-Length: 740326\r\n">, "name"=>"Opomuc"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Opomuc"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:55:24 UTC], ["updated_at", 2017-04-18 15:55:24 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 10ms (Views: 1.0ms | ActiveRecord: 0.8ms)
+  [1m[35m (2.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:55:45 UTC], ["updated_at", 2017-04-18 15:55:45 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/cats/random" for 127.0.0.1 at 2017-04-18 17:55:45 +0200
+Processing by CatsController#random as HTML
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (0.63ms)
+Completed 200 OK in 17ms (Views: 13.1ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:55:45 UTC], ["updated_at", 2017-04-18 15:55:45 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/cats" for 127.0.0.1 at 2017-04-18 17:55:45 +0200
+Processing by CatsController#create as HTML
+  Parameters: {"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fc6ea434870 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-21173-yxzlfb.png>, @original_filename="cat.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"cat.png\"\r\nContent-Type: image/png\r\nContent-Length: 740326\r\n">, "cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fc6ea42dfc0 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-21173-h8qaa4.png>, @original_filename="cat.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"cat.png\"\r\nContent-Type: image/png\r\nContent-Length: 740326\r\n">, "name"=>"Opomuc"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Opomuc"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:55:45 UTC], ["updated_at", 2017-04-18 15:55:45 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+Completed 200 OK in 7ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:58:46 UTC], ["updated_at", 2017-04-18 15:58:46 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/cats/random" for 127.0.0.1 at 2017-04-18 17:58:46 +0200
+Processing by CatsController#random as HTML
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (0.93ms)
+Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:58:46 UTC], ["updated_at", 2017-04-18 15:58:46 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/cats" for 127.0.0.1 at 2017-04-18 17:58:46 +0200
+Processing by CatsController#create as HTML
+  Parameters: {"picture"=>#<ActionDispatch::Http::UploadedFile:0x007faf91213200 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-21303-12eccm5.png>, @original_filename="cat.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"cat.png\"\r\nContent-Type: image/png\r\nContent-Length: 740326\r\n">, "cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007faf91212e68 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-21303-1xwvbx6.png>, @original_filename="cat.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"cat.png\"\r\nContent-Type: image/png\r\nContent-Length: 740326\r\n">, "name"=>"Opomuc"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Opomuc"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:58:46 UTC], ["updated_at", 2017-04-18 15:58:46 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 7ms (Views: 0.8ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:59:13 UTC], ["updated_at", 2017-04-18 15:59:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/cats/random" for 127.0.0.1 at 2017-04-18 17:59:13 +0200
+Processing by CatsController#random as HTML
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (0.56ms)
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:59:13 UTC], ["updated_at", 2017-04-18 15:59:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/cats" for 127.0.0.1 at 2017-04-18 17:59:13 +0200
+Processing by CatsController#create as HTML
+  Parameters: {"picture"=>#<ActionDispatch::Http::UploadedFile:0x007ff405a4bbf8 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-21392-1ocdvba.png>, @original_filename="cat.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"cat.png\"\r\nContent-Type: image/png\r\nContent-Length: 740326\r\n">, "cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007ff405a4b860 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-21392-135h2oj.png>, @original_filename="cat.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"cat.png\"\r\nContent-Type: image/png\r\nContent-Length: 740326\r\n">, "name"=>"Opomuc"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Opomuc"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:59:13 UTC], ["updated_at", 2017-04-18 15:59:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 8ms (Views: 1.0ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:59:46 UTC], ["updated_at", 2017-04-18 15:59:46 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/cats/random" for 127.0.0.1 at 2017-04-18 17:59:46 +0200
+Processing by CatsController#random as HTML
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 15:59:46 UTC], ["updated_at", 2017-04-18 15:59:46 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/cats" for 127.0.0.1 at 2017-04-18 17:59:46 +0200
+Processing by CatsController#create as HTML
+  Parameters: {"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fa8093e9ac8 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-21562-ph87cg.png>, @original_filename="cat.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"cat.png\"\r\nContent-Type: image/png\r\nContent-Length: 740326\r\n">, "cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007fa8093e8fb0 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-21562-ybq6lk.png>, @original_filename="cat.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"cat.png\"\r\nContent-Type: image/png\r\nContent-Length: 740326\r\n">, "name"=>"Opomuc"}}
+Unpermitted parameter: name
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+No serializer found for resource: "Name can't be blank"
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.07ms)
+Completed 200 OK in 10ms (Views: 2.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 16:01:43 UTC], ["updated_at", 2017-04-18 16:01:43 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/cats/random" for 127.0.0.1 at 2017-04-18 18:01:43 +0200
+Processing by CatsController#random as HTML
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY RANDOM() DESC LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered CatSerializer with ActiveModelSerializers::Adapter::Attributes (0.65ms)
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Cat"], ["picture", "cat.png"], ["created_at", 2017-04-18 16:01:43 UTC], ["updated_at", 2017-04-18 16:01:43 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/cats" for 127.0.0.1 at 2017-04-18 18:01:43 +0200
+Processing by CatsController#create as HTML
+  Parameters: {"picture"=>#<ActionDispatch::Http::UploadedFile:0x007f9463696c80 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-21813-a6xylc.png>, @original_filename="cat.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"cat.png\"\r\nContent-Type: image/png\r\nContent-Length: 740326\r\n">, "cat"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007f9463696aa0 @tempfile=#<Tempfile:/var/folders/vf/_s8q7j397t9c0nhkzr_w3r9w0000gn/T/RackMultipart20170418-21813-1brg86u.png>, @original_filename="cat.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"cat[picture]\"; filename=\"cat.png\"\r\nContent-Type: image/png\r\nContent-Length: 740326\r\n">, "name"=>"Opomuc"}}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
